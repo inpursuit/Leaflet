@@ -2,7 +2,10 @@
   "name": "leaflet-dist",
   "version": "0.7.3",
   "description": "JavaScript library for mobile-friendly interactive maps",
-  "main": "dist/leaflet-src.js",
+  "main": [
+    "dist/leaflet-src.js",
+    "dist/leaflet.css" 
+  ],
   "keywords": [
     "leaflet"
   ],
