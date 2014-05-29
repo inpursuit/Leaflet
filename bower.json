@@ -1,0 +1,26 @@
+{
+  "name": "leaflet-dist",
+  "version": "0.7.3",
+  "description": "JavaScript library for mobile-friendly interactive maps",
+  "main": "dist/leaflet-src.js",
+  "keywords": [
+    "leaflet"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "build",
+    "examples",
+    "spec",
+    "src",
+    "node_modules",
+    ".git",
+    ".gitignore",
+    ".gitattributes",
+    "Jakefile.js",
+    "package.json",
+    "TODO.md",
+    ".bowerrc",
+    ".bower.json"
+  ]
+}
