@@ -5107,7 +5107,8 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 	},
 
 	_updateStyle: function () {
-		var options = this.options;
+		var options = this.options,
+									arr, dash, i;
 
 		if (options.stroke) {
 			this._ctx.lineWidth = options.weight;
@@ -5115,6 +5116,25 @@ L.Path = (L.Path.SVG && !window.L_PREFER_CANVAS) || !L.Browser.canvas ? L.Path :
 		}
 		if (options.fill) {
 			this._ctx.fillStyle = options.fillColor || options.color;
+		}
+		if (options.dashArray) {
+			arr = options.dashArray.split(',');
+			dash = [arr.length];
+			for (i=0; i<arr.length; i++) {
+				dash[i] = parseInt(arr[i]);
+			}
+
+			if (this._ctx.setLineDash) {
+				this._ctx.setLineDash(dash);
+			} else {
+				this._ctx.mozDash = dash;
+			}
+		} else {
+			if(this._ctx.setLineDash) {
+				this._ctx.setLineDash([1,0]);
+			} else {
+				delete this._ctx.mozDash;
+			}
 		}
 	},
 
