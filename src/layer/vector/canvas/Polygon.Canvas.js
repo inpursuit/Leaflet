@@ -14,6 +14,8 @@ L.Polygon.include(!L.Path.CANVAS ? {} : {
 		if (L.Polyline.prototype._containsPoint.call(this, p, true)) {
 			// click on polygon border
 			return true;
+		} else if(this.options.pointerEventStroke) {
+			return false;
 		}
 
 		// ray casting algorithm for detecting if point is in polygon
