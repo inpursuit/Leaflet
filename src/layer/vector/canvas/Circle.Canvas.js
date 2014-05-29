@@ -11,8 +11,14 @@ L.Circle.include(!L.Path.CANVAS ? {} : {
 
 	_containsPoint: function (p) {
 		var center = this._point,
+				distance = p.distanceTo(this._point),
 		    w2 = this.options.stroke ? this.options.weight / 2 : 0;
 
-		return (p.distanceTo(center) <= this._radius + w2);
+		if(this.options.pointerEventStroke) {
+			return distance < this._radius + w2 &&
+						 distance > this._radius - w2;
+		} else {
+			return (p.distanceTo(center) <= this._radius + w2);
+		}
 	}
 });
